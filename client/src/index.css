@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ───────────────── BASE ───────────────── */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+    background: #080808;
+    color: #fff;
+    min-height: 100vh;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(249, 115, 22, 0.25);
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(249, 115, 22, 0.5);
+  }
+}
+
+/* ───────────────── COMPONENTS ───────────────── */
+@layer components {
+
+  /* ── Buttons ── */
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-400 hover:to-primary-500 text-white px-4 py-2 rounded-xl font-medium transition-all duration-200;
+
+    /* ✅ FIX: custom shadow outside @apply */
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
+  }
+
+  .btn-secondary {
+    @apply bg-white/5 hover:bg-white/10 text-white px-4 py-2 rounded-xl font-medium transition-all duration-200 flex items-center gap-2 border hover:border-primary-500/30;
+
+    /* ✅ FIX: replace invalid border-white/8 */
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .btn-danger {
+    @apply bg-red-500/10 hover:bg-red-500/20 text-red-400 hover:text-red-300 px-4 py-2 rounded-xl font-medium transition-all duration-200 flex items-center gap-2 border border-red-500/20;
+  }
+
+  /* ── Cards ── */
+  .glass-card {
+    @apply bg-white/[0.03] backdrop-blur-2xl border border-white/[0.06] rounded-2xl shadow-xl;
+  }
+
+  .poster-card {
+    background: linear-gradient(135deg, #1a1a1a 0%, #111 100%);
+    border: 1px solid rgba(249, 115, 22, 0.12);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .poster-card:hover {
+    border-color: rgba(249, 115, 22, 0.35);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(249, 115, 22, 0.2);
+  }
+
+  .dark-card {
+    background: #141414;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+  }
+
+  /* ── Inputs ── */
+  .input-field {
+    @apply w-full bg-white/[0.04] backdrop-blur-sm border border-white/[0.08] rounded-xl px-4 py-3 text-white placeholder-white/25 focus:outline-none focus:border-primary-500/60 focus:bg-white/[0.06] transition-all duration-200;
+  }
+
+  .select-field {
+    @apply w-full bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary-500/60 transition-all duration-200;
+  }
+
+  /* ── Sidebar ── */
+  .sidebar-link {
+    @apply flex items-center gap-3 px-4 py-2.5 rounded-xl text-white/40 hover:text-white transition-all duration-200 font-medium relative;
+  }
+
+  .sidebar-link.active {
+    @apply text-primary-400 bg-primary-500/10;
+  }
+
+  .sidebar-link.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 20%;
+    bottom: 20%;
+    width: 3px;
+    background: linear-gradient(to bottom, #F97316, #EA580C);
+    border-radius: 0 4px 4px 0;
+  }
+
+  /* ── Song Row ── */
+  .song-row {
+    @apply flex items-center gap-3 p-2.5 rounded-xl hover:bg-white/[0.04] transition-all duration-200 cursor-pointer border border-transparent hover:border-white/[0.05];
+  }
+
+  /* ── Typography ── */
+  .text-gradient-orange {
+    @apply text-transparent bg-clip-text;
+    background-image: linear-gradient(135deg, #FB923C, #F97316, #EA580C);
+  }
+
+  .text-gradient-fire {
+    @apply text-transparent bg-clip-text;
+    background-image: linear-gradient(135deg, #FDBA74, #F97316, #EC4899);
+  }
+
+  /* ── Admin Panel ── */
+  .glass-panel {
+    @apply bg-[#111]/90 backdrop-blur-2xl border border-white/[0.05] shadow-2xl;
+  }
+}
+
+/* ───────────────── CUSTOM UTILITIES (OUTSIDE APPLY) ───────────────── */
+
+/* Glow Effects */
+.orange-glow {
+  box-shadow: 0 0 30px rgba(249, 115, 22, 0.5);
+}
+
+.orange-glow-sm {
+  box-shadow: 0 0 15px rgba(249, 115, 22, 0.4);
+}
+
+.pink-glow {
+  box-shadow: 0 0 30px rgba(236, 72, 153, 0.4);
+}
+
+/* Neon Border */
+.neon-border {
+  position: relative;
+}
+
+.neon-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #F97316, #EC4899);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ── Music Player ── */
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+  background: rgba(255, 255, 255, 0.08);
+  height: 4px;
+  border-radius: 2px;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #F97316;
+  margin-top: -4px;
+  box-shadow: 0 0 8px rgba(249, 115, 22, 0.6);
+}
+
+/* ── Vinyl Spin ── */
+@keyframes vinyl-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.vinyl-spin {
+  animation: vinyl-spin 8s linear infinite;
+}
+
+.vinyl-spin.paused {
+  animation-play-state: paused;
+}
+
+/* ── Waveform Bars ── */
+@keyframes bar1 { 0%,100%{height:30%} 50%{height:100%} }
+@keyframes bar2 { 0%,100%{height:60%} 50%{height:30%} }
+@keyframes bar3 { 0%,100%{height:45%} 50%{height:90%} }
+@keyframes bar4 { 0%,100%{height:80%} 50%{height:20%} }
+@keyframes bar5 { 0%,100%{height:20%} 50%{height:70%} }
+
+.waveform-bar:nth-child(1) { animation: bar1 0.9s ease-in-out infinite; }
+.waveform-bar:nth-child(2) { animation: bar2 1.1s ease-in-out infinite; }
+.waveform-bar:nth-child(3) { animation: bar3 0.8s ease-in-out infinite; }
+.waveform-bar:nth-child(4) { animation: bar4 1.0s ease-in-out infinite; }
+.waveform-bar:nth-child(5) { animation: bar5 0.95s ease-in-out infinite; }
+
+/* ── Poster Grid Background ── */
+.poster-grid {
+  background-image:
+    linear-gradient(rgba(249,115,22,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(249,115,22,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ── Floating Music Notes (background decoration) ── */
+@keyframes floatNote {
+  0%   { transform: translateY(0px);    opacity: 0.5; }
+  25%  { transform: translateY(-16px) rotate(4deg);   opacity: 0.9; }
+  50%  { transform: translateY(-22px) rotate(-3deg);  opacity: 0.6; }
+  75%  { transform: translateY(-12px) rotate(5deg);   opacity: 1;   }
+  100% { transform: translateY(0px);    opacity: 0.5; }
+}
+
+.music-note {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  color: rgba(249, 115, 22, 0.13);
+  animation: floatNote ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* ── Sequential Arrow Glow (Welcome page) ── */
+@keyframes arrowGlow {
+  0%, 100% { color: rgba(255,255,255,0.15); text-shadow: none; }
+  50%       { color: #F97316; text-shadow: 0 0 10px rgba(249,115,22,0.8); }
+}
