@@ -6,7 +6,7 @@ An AI-powered full-stack music streaming platform built using the MERN Stack tha
 
 # 🚀 Live Demo
 
-🔗 **Live Website:** https://tunify-171n.vercel.app
+🔗 **Live Website:** [https://tunify-171n.vercel.app](https://tunify-ie.vercel.app/)
 
 ---
 
