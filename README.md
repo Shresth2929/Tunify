@@ -13,7 +13,7 @@ An AI-powered full-stack music streaming platform built using the MERN Stack tha
 # 📌 Hero Screenshot
 
 <p align="center">
-<img src="public/screenshots/hero.png" width="100%">
+<img src="screenshots/hero.png" width="100%">
 </p>
 
 ---
@@ -168,7 +168,7 @@ Fully responsive across
 # 🎼 Dashboard Screenshot
 
 <p align="center">
-<img src="public/screenshots/dashboard.png" width="100%">
+<img src="screenshots/dashboard.png" width="100%">
 </p>
 
 ---
@@ -178,7 +178,7 @@ Fully responsive across
 Users can select their mood and generate AI-powered music recommendations instantly.
 
 <p align="center">
-<img src="public/screenshots/ai-mix.png" width="100%">
+<img src="screenshots/ai-mix.png" width="100%">
 </p>
 
 ---
@@ -188,7 +188,7 @@ Users can select their mood and generate AI-powered music recommendations instan
 Describe your vibe and let Gemini AI generate a personalized playlist.
 
 <p align="center">
-<img src="public/screenshots/playlist-generator.png" width="100%">
+<img src="screenshots/playlist-generator.png" width="100%">
 </p>
 
 ---
